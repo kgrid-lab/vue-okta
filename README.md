@@ -34,4 +34,4 @@ git add -A
 git commit -m "Automated deployment to GitHub Pages"
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f https://<USERNAME>@github.com/kgrid-demos/vue-okta.git master:gh-pages
+git push -f https://<USERNAME>@github.com/kgrid-lab/vue-okta.git master:gh-pages
