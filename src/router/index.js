@@ -6,15 +6,16 @@ import authConfig from '@/config'
 import Home from '../components/Home.vue';
 import Avocado from '../components/Avocado.vue';
 import Banana from '../components/Banana.vue';
-
+import vueConfig from '../../vue.config.js'
 Vue.use(Router)
 
 const oktaAuth = new OktaAuth(authConfig.oidc)
-
+console.log(vueConfig)
 Vue.use(OktaVue, { oktaAuth })
 
 const router = new Router({
   mode: 'history',
+  base: vueConfig.publicPath,
   routes: [
       { path: '/', component: Home },
       { path: '/login/callback', component: LoginCallback},
