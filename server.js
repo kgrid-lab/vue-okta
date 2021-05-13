@@ -3,13 +3,25 @@ const app = express();
 // morgan logs all requests in the terminal
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+var history = require('connect-history-api-fallback');
 var path = require('path');
 
-app.use(express.static(path.join(__dirname, 'dist')))
+// Middleware for serving '/dist' directory
+const staticFileMiddleware = express.static(path.join(__dirname, 'dist'));
+
+// 1st call for unredirected requests
+app.use(staticFileMiddleware);
+
+// Support history api
+app.use(history());
+
+// 2nd call for redirected requests
+app.use(staticFileMiddleware);
 
 var port = process.env.PORT || 8080;
-app.listen(port);
-console.log('server started '+ port);
+app.listen(port, function () {
+  console.log(`Example app listening on port ${port}`);
+});
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:false}));
