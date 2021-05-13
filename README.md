@@ -24,7 +24,7 @@ yarn lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
-### Github Pages deply
+### Github Pages deploy
 
 # navigate into the build output directory
 cd dist
@@ -35,3 +35,14 @@ git commit -m "Automated deployment to GitHub Pages"
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
 git push -f https://<USERNAME>@github.com/kgrid-lab/vue-okta.git master:gh-pages
+
+
+### Local deployment with Express Server
+```
+yarn build
+```
+
+To start the server, run
+```
+npm run start
+```
