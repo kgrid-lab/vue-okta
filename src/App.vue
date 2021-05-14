@@ -5,14 +5,22 @@
         Login
       </button>
     </div>
-    <router-link to="/">Home</router-link><br>
-    <router-link to="/banana">Banana Time</router-link><br>
-    <router-link to="/avocado">Fresh Avocado</router-link><br>
+    <br>
+    <div v-if="!authState.isAuthenticated">
+      <button v-on:click="signUp()">
+        Sign Up
+      </button>
+    </div>
     <div v-if="authState.isAuthenticated">
       <button v-on:click="logout()">
         Logout
       </button>
     </div>
+    <br>
+    <router-link to="/">Home</router-link><br>
+    <router-link to="/banana">Banana Time</router-link><br>
+    <router-link to="/avocado">Fresh Avocado</router-link><br>
+
     <router-view></router-view>
   </div>
 </template>
@@ -33,6 +41,9 @@ export default {
     },
     login () {
       this.$auth.signInWithRedirect({ originalUri: '/banana' })
+    },
+    signUp () {
+      this.$router.push('signUp')
     },
     async logout () {
       await this.$auth.signOut()
