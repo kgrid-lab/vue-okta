@@ -1,4 +1,5 @@
 <template>
+  <div>
   <form @submit.prevent="signUp">
       <div>
         <label for="firstName">first name</label>
@@ -17,6 +18,7 @@
     <button v-on:click="signUp()">
       Send Request for Access
     </button>
+  </div>
 </template>
 
 <script>
