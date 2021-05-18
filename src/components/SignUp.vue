@@ -13,6 +13,10 @@
         <input name="email" v-model="email" placeholder="email">
       </div>
     </form>
+    <br>
+    <button v-on:click="signUp()">
+      Send Request for Access
+    </button>
 </template>
 
 <script>
