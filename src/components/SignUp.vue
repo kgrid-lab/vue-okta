@@ -34,7 +34,7 @@ export default {
   methods: {
     signUp(){
       var yourMessage = "Name: " + this.firstName + " " + this.lastName + "\nEmail: " + this.email
-      var subject = this.firstName + " " + this.lastName + "would like some banana time."
+      var subject = this.firstName + " " + this.lastName + " would like some banana time."
       document.location.href = "mailto:adambeck@med.umich.edu?subject="
         + encodeURIComponent(subject)
         + "&body=" + encodeURIComponent(yourMessage);
